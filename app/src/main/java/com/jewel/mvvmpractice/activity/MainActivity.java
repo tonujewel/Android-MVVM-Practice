@@ -1,8 +1,10 @@
-package com.jewel.mvvmpractice;
+package com.jewel.mvvmpractice.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.jewel.mvvmpractice.R;
 
 public class MainActivity extends AppCompatActivity {
 
