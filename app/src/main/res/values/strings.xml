@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MVVM practice</string>
+    <string name="add_notes">Add notes</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="priority">Priority</string>
+    <string name="save">Save</string>
 </resources>
