@@ -15,7 +15,7 @@ import android.widget.Toast;
 import com.jewel.mvvmpractice.R;
 import com.jewel.mvvmpractice.utils.AppConstant;
 
-public class AddNoteActivity extends AppCompatActivity {
+public class AddEditNoteActivity extends AppCompatActivity {
 
     private EditText edtTitle, edtDescription;
     private NumberPicker priorityNumberPicker;
@@ -33,7 +33,17 @@ public class AddNoteActivity extends AppCompatActivity {
         priorityNumberPicker.setMaxValue(10);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle(getString(R.string.add_note));
+
+        // set data for update/edit note
+        Intent intent = getIntent();
+        if (intent.hasExtra(AppConstant.EXTRA_ID)) {
+            setTitle(getString(R.string.edit_note));
+            edtTitle.setText(intent.getStringExtra(AppConstant.EXTRA_TITLE));
+            edtDescription.setText(intent.getStringExtra(AppConstant.EXTRA_DESCRIPTION));
+            priorityNumberPicker.setValue(intent.getIntExtra(AppConstant.EXTRA_PRIORITY, 1));
+        } else {
+            setTitle(getString(R.string.add_note));
+        }
     }
 
 
@@ -44,16 +54,21 @@ public class AddNoteActivity extends AppCompatActivity {
         int priority = priorityNumberPicker.getValue();
 
         if (title.trim().isEmpty() || description.trim().isEmpty()) {
-            Toast.makeText(this, R.string.insert_title_erroe + " and " + R.string.insert_description_error, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.insert_title_error + " and " + R.string.insert_description_error, Toast.LENGTH_SHORT).show();
             return;
         }
 
         Intent data = new Intent();
-        data.putExtra(AppConstant.EXTRA_TITLE,title);
-        data.putExtra(AppConstant.EXTRA_DESCRIPTION,description);
-        data.putExtra(AppConstant.EXTRA_PRIORITY,priority);
+        data.putExtra(AppConstant.EXTRA_TITLE, title);
+        data.putExtra(AppConstant.EXTRA_DESCRIPTION, description);
+        data.putExtra(AppConstant.EXTRA_PRIORITY, priority);
 
-        setResult(RESULT_OK,data);
+        int id = getIntent().getIntExtra(AppConstant.EXTRA_ID, -1);
+
+        if (id != -1) {
+          data.putExtra(AppConstant.EXTRA_ID, id);
+        }
+        setResult(RESULT_OK, data);
         finish();
     }
 

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".activity.AddNoteActivity"
+            android:name=".activity.AddEditNoteActivity"
             android:parentActivityName=".activity.MainActivity" />
 
         <activity android:name=".activity.MainActivity"
