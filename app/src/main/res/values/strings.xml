@@ -10,4 +10,7 @@
     <string name="insert_description_error">Please insert description</string>
     <string name="note_saved">Note saved</string>
     <string name="note_note_saved">Note not saved</string>
+    <string name="note_deleted">Note Deleted</string>
+    <string name="delete_all_notes">Delete all notes</string>
+    <string name="all_notes_delted">All notes deleted</string>
 </resources>
