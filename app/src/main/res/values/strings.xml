@@ -5,4 +5,9 @@
     <string name="description">Description</string>
     <string name="priority">Priority</string>
     <string name="save">Save</string>
+    <string name="add_note">Add Note</string>
+    <string name="insert_title_erroe">Please insert a title</string>
+    <string name="insert_description_error">Please insert description</string>
+    <string name="note_saved">Note saved</string>
+    <string name="note_note_saved">Note not saved</string>
 </resources>
